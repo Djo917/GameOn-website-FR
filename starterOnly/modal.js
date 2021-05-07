@@ -13,7 +13,7 @@ const init = () => {
 const editNav = () => {
   const x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
-    x.className += " responsive";
+    x.className += "responsive";
   } else {
     x.className = "topnav";
   }
@@ -29,3 +29,12 @@ const launchModal = () => {
 };
 
 init();
+
+const closed = document.getElementsByClassName('close');
+const modalBg = document.querySelector(".bground");
+
+const closeForm = () => {
+  modalBg.style.display = "none";
+}
+
+closed[0].addEventListener('click', closeForm);
