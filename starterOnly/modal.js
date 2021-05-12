@@ -1,10 +1,15 @@
 const init = () => {
   const modalBtn = document.querySelectorAll(".modal-btn");
+  const closed = document.getElementById('close');
+  const icon = document.getElementById("icon");
 
   // launch modal event
   modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
-  const icon = document.getElementById("icon");
+  closed.addEventListener('click', () => {
+    closeForm();
+  })
+
   icon.addEventListener('click', () => {
     editNav();
   })
@@ -13,28 +18,22 @@ const init = () => {
 const editNav = () => {
   const x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
-    x.className += "responsive";
+    x.className += " responsive";
   } else {
     x.className = "topnav";
   }
 };
 
-// DOM Elements
-const modalbg = document.querySelector(".bground");
-const formData = document.querySelectorAll(".formData");
-
 // launch modal form
 const launchModal = () => {
+  const modalBg = document.querySelector(".bground");
   modalbg.style.display = "block";
 };
 
-init();
-
-const closed = document.getElementsByClassName('close');
-const modalBg = document.querySelector(".bground");
-
 const closeForm = () => {
+  const modalBg = document.querySelector(".bground");
   modalBg.style.display = "none";
 }
 
-closed[0].addEventListener('click', closeForm);
+init();
+
