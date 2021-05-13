@@ -4,7 +4,7 @@ const init = () => {
   const icon = document.getElementById("icon");
 
   // launch modal event
-  modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+  modalBtn.forEach((btn) => btn.addEventListener('click', launchModal));
 
   closed.addEventListener('click', () => {
     closeForm();
@@ -27,13 +27,32 @@ const editNav = () => {
 // launch modal form
 const launchModal = () => {
   const modalBg = document.querySelector(".bground");
-  modalbg.style.display = "block";
+  modalBg.style.display = "block";
 };
+
 
 const closeForm = () => {
   const modalBg = document.querySelector(".bground");
   modalBg.style.display = "none";
 }
+
+
+let prenom = document.getElementById("first");
+let messageErreurPrenom = document.getElementById("messageErreurPrenom");
+
+firstNameValid = (prenom) => {
+  if(prenom.value.length < 2) {
+    messageErreurPrenom.textContent = "Le champ prénom doit contenir au minimum 2 caractères";
+    return false;
+  }
+  else {
+    messageErreurPrenom.textContent = "";
+  }
+};
+
+firstNameValid(prenom);
+
+
 
 init();
 
