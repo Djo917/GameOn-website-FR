@@ -36,23 +36,42 @@ const closeForm = () => {
   modalBg.style.display = "none";
 }
 
-
-let prenom = document.getElementById("first");
+/*let prenom = document.getElementById("first");*/
 let messageErreurPrenom = document.getElementById("messageErreurPrenom");
 
-firstNameValid = (prenom) => {
+
+const firstNameValid = () => {
+  let prenom = document.getElementById("first");
   if(prenom.value.length < 2) {
+    console.log("error");
     messageErreurPrenom.textContent = "Le champ prénom doit contenir au minimum 2 caractères";
     return false;
   }
   else {
     messageErreurPrenom.textContent = "";
+    return true;
   }
 };
 
-firstNameValid(prenom);
+const lastNameValid = () => {
+  let nom = document.getElementById("last");
+  if(nom.value.length < 2) {
+    console.log("error");
+    messageErreurNom.textContent = "Le champ nom doit contenir au minimum 2 caractères";
+    return false;
+  }
+  else {
+    messageErreurNom.textContent = "";
+    return true;
+  }
+};
 
-
+document.getElementById("formulaire").addEventListener("submit", (test) => {
+  test.preventDefault();
+  firstNameValid();
+  lastNameValid();
+  console.log(test);
+});
 
 init();
 
