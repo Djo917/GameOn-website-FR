@@ -36,8 +36,9 @@ const closeForm = () => {
   modalBg.style.display = "none";
 }
 
-/*let prenom = document.getElementById("first");*/
+
 let messageErreurPrenom = document.getElementById("messageErreurPrenom");
+let messageErreurNom = document.getElementById("messageErreurNom");
 
 
 const firstNameValid = () => {
