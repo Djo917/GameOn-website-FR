@@ -75,7 +75,6 @@ const emailAdressValid = () => {
   if(emailregex.test(email.value)) {
     messageErreurMail.textContent = "";
     return true;
-
   }
   else {
     messageErreurMail.textContent = "L'adresse e-mail est incorrecte.";
@@ -85,17 +84,19 @@ const emailAdressValid = () => {
 
 const concoursNumber = () => {
   const messageErreurConcours = document.getElementById("messageErreurConcours");
-  let quantity = document.getElementById("quantity");
-  const concoursregex = /[0-9]/;
+  const quantity = document.getElementById("quantity");
+  const quantityNumber = parseInt(quantity.value, 10);
 
-  if(concoursregex.test(quantity.value)) {
-    messageErreurMail.textContent = "";
-    return true;
+  if(Number.isInteger(quantityNumber)) {
+    if(quantityNumber < 0 || quantityNumber > 99) {
+      messageErreurConcours.textContent = "Le nombre doit être compris en 0 et 99";
+      return false;
+    }
+      messageErreurConcours.textContent = "";
+      return true;
   }
-  else {
     messageErreurConcours.textContent = "La valeur saisie n'est pas un nombre";
     return false;
-  }
 }
 
 const checkboxChecked = () => {
@@ -106,35 +107,56 @@ const checkboxChecked = () => {
 
     if(box.checked == true) {
       console.log("ok");
+      messageErreurCheckBox.textContent = "";
       return true;
     }
     else if(document.getElementById("location2").checked == true) {
       console.log("ok");
+      messageErreurCheckBox.textContent = "";
       return true;  
     }
     else if(document.getElementById("location3").checked == true) {
       console.log("ok");
+      messageErreurCheckBox.textContent = "";
       return true;  
     }
     else if(document.getElementById("location4").checked == true) {
       console.log("ok");
+      messageErreurCheckBox.textContent = "";
       return true;  
     }
     else if(document.getElementById("location5").checked == true) {
       console.log("ok");
+      messageErreurCheckBox.textContent = "";
       return true;  
     }
     else if(document.getElementById("location6").checked == true) {
       console.log("ok");
+      messageErreurCheckBox.textContent = "";
       return true;  
     }
     else {
       console.log("pas ok");  
-      messageErreurCheckBox.textContent = "Il faut cocher une case";
+      messageErreurCheckBox.textContent = "Vous devez choisir une option";
       return false; 
     }
   }
   while(box.checked != true)
+}
+
+const generalTerms = () => {
+  const messageErreurGeneralTerms = document.getElementById("messageErreurGeneralTerms");
+
+  if(document.getElementById("checkbox1").checked == true) {
+    console.log("ok");
+    messageErreurGeneralTerms.textContent = "";
+    return true;
+  }
+  else {
+    console.log("pas ok");
+    messageErreurGeneralTerms.textContent = "Il faut accepter les conditions d utilisation";
+    return false;
+  }
 }
 
 document.getElementById("formulaire").addEventListener("submit", (test) => {
@@ -144,6 +166,7 @@ document.getElementById("formulaire").addEventListener("submit", (test) => {
   emailAdressValid();
   checkboxChecked();
   concoursNumber();
+  generalTerms();
   console.log(test);
 });
 
