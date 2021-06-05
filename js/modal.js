@@ -180,7 +180,7 @@ const birthDate = () => {
       messageErreurBirthDate.textContent = "Le chiffre du mois est incorrect";
       return false;
 
-    } else if (date[0].length < 4 || date[0].length > 4 || (currentYear - date[0]) > 99) {
+    } else if (date[0].length < 4 || date[0].length > 4) {
       messageErreurBirthDate.textContent = "L'année est incorrecte";
       return false;
     }
@@ -199,6 +199,11 @@ const birthDate = () => {
       messageErreurBirthDate.textContent ="Il faut avoir 16 ans minimum pour s'inscrire";
       return false;
     }
+    else if ((currentYear - date[0]) > 99) {
+      messageErreurBirthDate.textContent ="Il faut avoir moins de 99 ans pour s'inscrire";
+      return false;
+    }
+    
     messageErreurBirthDate.textContent ="";
     return true;
     
