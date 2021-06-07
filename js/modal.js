@@ -210,6 +210,14 @@ const birthDate = () => {
   }
 };
 
+const confirmationSubmit = () => {
+  if(firstNameValid() && lastNameValid() && emailAdressValid() && checkboxChecked() 
+  && concoursNumber() && generalTerms() && birthDate()) {
+    closeForm();
+    alert("Le formulaire a bien été envoyé");
+  }
+};
+
 document.getElementById("formulaire").addEventListener("submit", (test) => {
   test.preventDefault();
   firstNameValid();
@@ -219,6 +227,7 @@ document.getElementById("formulaire").addEventListener("submit", (test) => {
   concoursNumber();
   generalTerms();
   birthDate();
+  confirmationSubmit();
   console.log(test);
 });
 
