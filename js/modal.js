@@ -168,8 +168,6 @@ const birthDate = () => {
   let daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
 
-  console.log(date, date[0] !== "");
-
   if (date[0] !== "") {
     /*Vérifie que le nombre de jour n'est pas supérieur à 30 pour les mois concernés*/
     if (date[2] < 1) {
