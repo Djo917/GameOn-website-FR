@@ -215,6 +215,7 @@ const confirmationSubmit = () => {
   && concoursNumber() && generalTerms() && birthDate()) {
     closeForm();
     alert("Le formulaire a bien été envoyé");
+    document.getElementById("formulaire").reset();
   }
 };
 
