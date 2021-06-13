@@ -211,12 +211,17 @@ const birthDate = () => {
 };
 
 const confirmationSubmit = () => {
+  const modalBg = document.getElementById("modalconf");
+
   if(firstNameValid() && lastNameValid() && emailAdressValid() && checkboxChecked() 
   && concoursNumber() && generalTerms() && birthDate()) {
+
     closeForm();
-    document.getElementsById("modalconf").remove(confirmationhide);
-    alert("Merci votre réservation a été reçue.");
     document.getElementById("formulaire").reset();
+    modalBg.style.display = "inline";
+    modalBg.addEventListener("click", () => {
+      modalBg.style.display = "none";
+    });
   }
 };
 

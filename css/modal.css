@@ -189,18 +189,38 @@ main {
 }
 
 .modalconfirmationhide {
-  background-color: #232323;
-  color: white;
-  padding: 15px 8%;
-  margin: 15px auto;
+  margin: 5% auto;
+  text-align: center;
+  height: 8em;
+  width: 100%;
+  max-width: 500px;
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration);
+  background: #232323;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  top: -40em;
+  color: #fff;
+  padding-top: 10px;
   display: none;
+  opacity: 0.6;
 }
 
-.modalconfirmationdisplay {
-  background-color: #232323;
-  color: white;
-  padding: 15px 8%;
-  margin: 15px auto;
+.btn-ok {
+  background-color: #fe142f;
+  display: block;
+  margin: 0 auto;
+  border-radius: 7px;
+  font-size: 1rem;
+  padding: 12px 82px;
+  color: #fff;
+  cursor: pointer;
+  border: 0;
+}
+
+.modalconfirmationhide--text {
+  margin-bottom: 1.2em;
 }
 
 label {
