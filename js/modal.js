@@ -214,7 +214,8 @@ const confirmationSubmit = () => {
   if(firstNameValid() && lastNameValid() && emailAdressValid() && checkboxChecked() 
   && concoursNumber() && generalTerms() && birthDate()) {
     closeForm();
-    alert("Le formulaire a bien été envoyé");
+    document.getElementsById("modalconf").remove(confirmationhide);
+    alert("Merci votre réservation a été reçue.");
     document.getElementById("formulaire").reset();
   }
 };
