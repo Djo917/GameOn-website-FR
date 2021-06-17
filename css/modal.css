@@ -204,7 +204,6 @@ main {
   color: #fff;
   padding-top: 10px;
   display: none;
-  opacity: 0.9;
 }
 
 .btn-ok {
@@ -471,7 +470,7 @@ input[data-error]::after {
   z-index: 1;
 }
 .hero-headline {
-  font-size: 6rem;
+  font-size: 4rem;
   font-weight: normal;
   white-space: nowrap;
 }

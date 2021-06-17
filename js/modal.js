@@ -1,3 +1,5 @@
+/*Fonction qui contient les instructions pour lancer,
+fermer la modale. Contient également l'ouverture du menu nav*/
 const init = () => {
   const modalBtn = document.querySelectorAll(".modal-btn");
   const closed = document.getElementById("close");
@@ -6,6 +8,7 @@ const init = () => {
   // launch modal event
   modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
+  //appel la fonction closeForm au click sur la croix
   closed.addEventListener("click", () => {
     closeForm();
   });
@@ -40,9 +43,7 @@ const firstNameValid = () => {
   let prenom = document.getElementById("first");
 
   if (prenom.value.length < 2) {
-    console.log("error");
-    messageErreurPrenom.textContent =
-      "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
+    messageErreurPrenom.textContent ="Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
     return false;
 
   } else {
@@ -56,7 +57,6 @@ const lastNameValid = () => {
   let nom = document.getElementById("last");
 
   if (nom.value.length < 2) {
-    console.log("error");
     messageErreurNom.textContent ="Veuillez entrer 2 caractères ou plus pour le champ du nom.";
     return false;
 
@@ -105,37 +105,30 @@ const checkboxChecked = () => {
     const box = document.getElementById("location1");
 
     if (box.checked == true) {
-      console.log("ok");
       messageErreurCheckBox.textContent = "";
       return true;
 
     } else if (document.getElementById("location2").checked == true) {
-      console.log("ok");
       messageErreurCheckBox.textContent = "";
       return true;
 
     } else if (document.getElementById("location3").checked == true) {
-      console.log("ok");
       messageErreurCheckBox.textContent = "";
       return true;
 
     } else if (document.getElementById("location4").checked == true) {
-      console.log("ok");
       messageErreurCheckBox.textContent = "";
       return true;
 
     } else if (document.getElementById("location5").checked == true) {
-      console.log("ok");
       messageErreurCheckBox.textContent = "";
       return true;
 
     } else if (document.getElementById("location6").checked == true) {
-      console.log("ok");
       messageErreurCheckBox.textContent = "";
       return true;
 
     } else {
-      console.log("pas ok");
       messageErreurCheckBox.textContent = "Vous devez choisir une option";
       return false;
     }
@@ -160,13 +153,12 @@ const generalTerms = () => {
 const birthDate = () => {
   const messageErreurBirthDate = document.getElementById("messageErreurBirthDate");
   const date = document.getElementById("birthdate").value.split("-"); //enlève le séparateur de la date
-  const yearDays = date[0];
+  const yearDays = date[0]; // 0 = année / 1 = mois / 2 = jour
   
   const today =  new Date(); //Récupère la date actuelle
   const currentYear = today.getFullYear(); // Stock l'année dans currentYear
   
   let daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-
 
   if (date[0] !== "") {
     /*Vérifie que le nombre de jour n'est pas supérieur à 30 pour les mois concernés*/
@@ -178,7 +170,7 @@ const birthDate = () => {
       messageErreurBirthDate.textContent = "Le chiffre du mois est incorrect";
       return false;
 
-    } else if (date[0].length < 4 || date[0].length > 4) {
+    } else if (date[0].length !== 4) {
       messageErreurBirthDate.textContent = "L'année est incorrecte";
       return false;
     }
